@@ -4,18 +4,22 @@
 
 
 class Thermometer:
-    def __init__(self, location, temp_readings = None):
+    def __init__(self, location, temp_readings = None)->None:
+        """Initialization"""
         self.location = location
         self.temp_readings = temp_readings if temp_readings is not None else []
 
 
-    def add(self, reading):
+    def add(self, reading)-> None:
+        """Adds reading"""
         self.temp_readings.append(reading)
 
-    def average(self):
+    def average(self) ->  float|None:
+        """Returns average temperature"""
         return sum(self.temp_readings)/len(self.temp_readings) if self.temp_readings else None
 
-    def hottest(self):
+    def hottest(self)-> float|None:
+        """Returns max temperature"""
         return max(self.temp_readings) if self.temp_readings else None
 
 
@@ -42,16 +46,20 @@ class Thermometer:
         self.temp_readings = temp_readings if temp_readings is not None else []
 
 
-    def add(self, reading):
+    def add(self, reading)-> None:
+        """Adds reading"""
         self.temp_readings.append(reading)
 
-    def average(self):
+    def average(self)->float|None:
+        """Returns average temperature"""
         return sum(self.temp_readings)/len(self.temp_readings) if self.temp_readings else None
 
-    def hottest(self):
+    def hottest(self)->float|None:
+        """Returns max temperature"""
         return max(self.temp_readings) if self.temp_readings else None
 
-    def __repr__(self):
+    def __repr__(self)->str:
+        """Represents object's useful data"""
         return (
             f"Thermometer(location={self.location!r}, n_readings={len(self.temp_readings)}, "
             f"average={self.average()})"
@@ -73,14 +81,12 @@ print([austin, destin])
 
 # Classes Question 3
 class TemperatureAlert:
-    def __init__(self, threshold = 30):
+    def __init__(self, threshold = 30)->None:
         self.threshold = threshold
 
-        
-        
+    def breaches(self, thermometer)->list[float]:
+        """Returns list of temperatures above threshold"""
 
-        self.threshold=threshold
-    def breaches(self, thermometer):
         list_above_threshold=[]
         for temp_reading in thermometer.temp_readings:
             if temp_reading > self.threshold:
@@ -88,8 +94,8 @@ class TemperatureAlert:
 
         return list_above_threshold
 
-low_threshold = TemperatureAlert(30)
-high_threshold = TemperatureAlert(33)
+low_threshold = TemperatureAlert(30.0)
+high_threshold = TemperatureAlert(33.0)
 
 print(f"Low threshold: {low_threshold.breaches(destin)}")
 
@@ -181,9 +187,11 @@ class StationBatch:
     # `field(default_factory=list)` calls `list()` fresh for each new instance.
 
     def add(self, station: Station) -> None:
+        """Adds a station"""
         self.stations.append(station)
 
     def highest(self)->Station|None:
+        """Returns highest station"""
         if not self.stations:
             return None
         highest_station= self.stations[0]
@@ -311,6 +319,7 @@ class Reading(BaseModel):
   
     @model_validator(mode="after")
     def check_sensor_health(self):
+        """Checks humidity and temperature value to determine sensor's health"""
         if self.humidity == 0.0 and self.temperature_c < -40:
             raise ValueError(
                 "Humidity=0.0 and temperature below -40 indicate a failed sensor"
@@ -394,6 +403,7 @@ def test_mean_of_empty_raises():
                          ])
 
 def test_mean_values(values, expected):
+    
     assert mean(values) == expected
 
 
