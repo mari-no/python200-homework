@@ -12,6 +12,7 @@ class HourlyBlock(BaseModel):
     @model_validator(mode="after")
 
     def same_length_lists(self):
+        """ Validates that lists are all the same length"""
         if not(
             len(self.time)==len(self.precipitation)==len(self.temperature_2m)
         ):

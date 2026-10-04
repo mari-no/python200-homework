@@ -9,3 +9,6 @@
 
 # ============================== no tests ran in 0.01s =========
 
+from .schemas import WeatherResponse
+from .summarize import DailyAggregator
+from .records import HourlyReading, to_readings

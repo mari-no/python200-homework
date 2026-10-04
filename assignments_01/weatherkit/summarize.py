@@ -19,6 +19,7 @@ class DailySummary:
 
 
 class DailyAggregator:
+    """Aggregates data by day"""
     def __init__(self, min_hours: int = 24):
         self.min_hours = min_hours
 
