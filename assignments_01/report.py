@@ -48,7 +48,7 @@ def main():
             "temp_max": summary.temp_max,
             "temp_min": summary.temp_min,
             "precipitation_sum": summary.precipitation_sum,
-            "temperature_reange": summary.temp_range(),
+            "temperature_range": summary.temp_range(),
             "hours_observed": summary.hours_observed,
 
         }
