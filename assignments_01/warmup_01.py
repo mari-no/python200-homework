@@ -117,8 +117,8 @@ class Station:
   latitude : float
   longitude : float
   elevation : float
-station_a = Station("01","Austin","1.23","24.56","0.8")
-station_b = Station("01","Austin","1.23","24.56","0.8")
+station_a = Station("01","Austin",1.23,24.56,0.8)
+station_b = Station("01","Austin",1.23,24.56,0.8)
 print(station_a == station_b)
 ###comment explaining why the result is what it is, 
 # and what it would have been with the original hand-written class.
@@ -145,10 +145,10 @@ class Station:
   latitude : float
   longitude : float
   elevation : float
-station_a = Station("01","Austin","1.23","24.56","0.8")
-station_b = Station("01","Austin","1.23","24.56","0.8")
+station_a = Station("01","Austin",1.23,24.56,0.8)
+station_b = Station("01","Austin",1.23,24.56,0.8)
 
-station_c = Station("02","Dallas","1.8","44.58","70.8")
+station_c = Station("02","Dallas",1.8,44.58,70.8)
 try:
     station_a.name="Changed name"
 except FrozenInstanceError as error:
