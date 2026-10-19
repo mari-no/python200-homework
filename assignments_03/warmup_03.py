@@ -14,7 +14,7 @@ from sklearn.metrics import (
 )
 import joblib
 
-df = pd.read_csv("/Users/marinam/python200-homework/assignments_03/weather_classification.csv")
+df = pd.read_csv("weather_classification.csv")
 numeric = ["temperature_2m_max", "temperature_2m_min", "precipitation_sum", "wind_speed_10m_max"]
 X = df[numeric]
 y = df["good_for_running"]
