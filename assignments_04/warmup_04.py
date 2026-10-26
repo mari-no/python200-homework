@@ -55,6 +55,12 @@ class DayForecast:
         else: 
             return f"{self.date}: high {self.high_c}, no rain expected"
 
+# Two DayForecast objects
+forecast1 = DayForecast("2026-10-26", 28.0, True)
+forecast2 = DayForecast("2026-10-27", 30.0, False)
+print(forecast1.summary())
+print(forecast2.summary())
+
 #The @dataclass decorator automatically generated the __init__() method, 
 # so I didn't have to write the constructor and assign each attribute 
 # manually.
