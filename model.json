@@ -1,0 +1,8 @@
+{
+    "features": [
+        "temp_max",
+        "temp_min",
+        "humidity",
+        "clouds"
+    ]
+}
