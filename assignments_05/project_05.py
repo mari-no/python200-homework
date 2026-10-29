@@ -331,7 +331,7 @@ def run_chatbot():
             print("\nJob Application Helper:", reply)
 
             messages.append({"role": "assistant", "content": reply})
-            print(len(messages))
+       
             pass
 
 
