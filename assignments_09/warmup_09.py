@@ -113,9 +113,25 @@ def safe_upsert(supabase, records):
 if __name__ == "__main__":
     supabase = get_client()
 
+    # CRUD Question 1: Test INSERT
+    insert_test_record(supabase)
+
+    # CRUD Question 2: Test date range query
+    today = date.today().isoformat()
+
+    records = get_records_by_date_range(
+        supabase,
+        today,
+        today
+    )
+
+    print("Records found in date range:")
+    print(records)
+
+    # CRUD Question 3: Test UPSERT
     test_records = [
         {
-            "date": date.today().isoformat(),
+            "date": today,
             "temperature_2m_max": 27.5,
             "temperature_2m_min": 18.2,
             "precipitation_sum": 0.0,
